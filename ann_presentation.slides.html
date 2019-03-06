@@ -11915,6 +11915,28 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Contents">Contents<a class="anchor-link" href="#Contents">&#182;</a></h1><ul>
+<li>Practical applications</li>
+<li>Similarity and metrics</li>
+<li>Brute-force method</li>
+<li>Faster (approximate) methods:<ul>
+<li>HNSW</li>
+<li>FAISS</li>
+<li>ANNOY</li>
+</ul>
+</li>
+<li>Demo and code</li>
+<li>Summary</li>
+<li>Where to go next</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="About-me">About me<a class="anchor-link" href="#About-me">&#182;</a></h1><ul>
 <li>Studied Physics at Moscow State University and University of Alberta</li>
 <li>Worked in Aerospace industry (UrtheCast) for 4 years: telemetry analysis and image processing</li>
@@ -12303,20 +12325,20 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>--2019-03-05 18:30:36--  http://nlp.stanford.edu/data/glove.6B.zip
+<pre>--2019-03-06 11:26:10--  http://nlp.stanford.edu/data/glove.6B.zip
 Resolving nlp.stanford.edu... 171.64.67.140
 Connecting to nlp.stanford.edu|171.64.67.140|:80... connected.
 HTTP request sent, awaiting response... 302 Found
 Location: https://nlp.stanford.edu/data/glove.6B.zip [following]
---2019-03-05 18:30:36--  https://nlp.stanford.edu/data/glove.6B.zip
+--2019-03-06 11:26:10--  https://nlp.stanford.edu/data/glove.6B.zip
 Connecting to nlp.stanford.edu|171.64.67.140|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 862182613 (822M) [application/zip]
 Saving to: ‘glove.6B.zip’
 
-glove.6B.zip        100%[===================&gt;] 822.24M  5.57MB/s    in 3m 50s  
+glove.6B.zip        100%[===================&gt;] 822.24M  4.52MB/s    in 6m 44s  
 
-2019-03-05 18:34:27 (3.57 MB/s) - ‘glove.6B.zip’ saved [862182613/862182613]
+2019-03-06 11:32:54 (2.03 MB/s) - ‘glove.6B.zip’ saved [862182613/862182613]
 
 Archive:  glove.6B.zip
   inflating: glove_data/glove.6B.50d.txt  
@@ -12403,8 +12425,8 @@ Archive:  glove.6B.zip
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 16 s, sys: 1.03 s, total: 17 s
-Wall time: 16.9 s
+<pre>CPU times: user 14.7 s, sys: 773 ms, total: 15.5 s
+Wall time: 15.5 s
 </pre>
 </div>
 </div>
@@ -12501,7 +12523,7 @@ Wall time: 16.9 s
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">faiss</span>
@@ -12517,7 +12539,7 @@ Wall time: 16.9 s
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -12540,8 +12562,8 @@ Wall time: 16.9 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 9.35 ms, sys: 1.54 ms, total: 10.9 ms
-Wall time: 8.74 ms
+<pre>CPU times: user 16 ms, sys: 1.15 ms, total: 17.1 ms
+Wall time: 15.4 ms
 </pre>
 </div>
 </div>
@@ -12552,7 +12574,7 @@ Wall time: 8.74 ms
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -12575,8 +12597,8 @@ Wall time: 8.74 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 5min, sys: 1.73 s, total: 5min 2s
-Wall time: 40 s
+<pre>CPU times: user 5min 5s, sys: 1.55 s, total: 5min 7s
+Wall time: 40.8 s
 </pre>
 </div>
 </div>
@@ -12587,11 +12609,17 @@ Wall time: 40 s
 </div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">index_faiss</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">IndexFlatL2</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">vec</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">nlist</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">quantizer</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">IndexFlatL2</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">index_faiss</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">IndexIVFPQ</span><span class="p">(</span><span class="n">quantizer</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">nlist</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">index_faiss</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span>
 <span class="n">index_faiss</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span>
 </pre></div>
 
@@ -12609,8 +12637,8 @@ Wall time: 40 s
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 27.5 ms, sys: 27 ms, total: 54.5 ms
-Wall time: 52.5 ms
+<pre>CPU times: user 1min 5s, sys: 545 ms, total: 1min 6s
+Wall time: 10.9 s
 </pre>
 </div>
 </div>
@@ -12621,7 +12649,7 @@ Wall time: 52.5 ms
 </div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -12645,8 +12673,8 @@ Wall time: 52.5 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 16.1 s, sys: 125 ms, total: 16.2 s
-Wall time: 16.2 s
+<pre>CPU times: user 16.4 s, sys: 139 ms, total: 16.5 s
+Wall time: 15.8 s
 </pre>
 </div>
 </div>
@@ -12657,7 +12685,7 @@ Wall time: 16.2 s
 </div></div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_neighbors</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="p">,</span> <span class="n">index_name</span><span class="p">):</span>
@@ -12688,7 +12716,7 @@ Wall time: 16.2 s
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -12719,8 +12747,8 @@ seoul
 singapore
 kong
 taipei
-CPU times: user 80.4 ms, sys: 124 ms, total: 204 ms
-Wall time: 1.17 s
+CPU times: user 81.2 ms, sys: 137 ms, total: 219 ms
+Wall time: 1.22 s
 </pre>
 </div>
 </div>
@@ -12731,7 +12759,7 @@ Wall time: 1.17 s
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -12758,12 +12786,12 @@ japan
 osaka
 japanese
 beijing
-seoul
 singapore
 kong
 taipei
-CPU times: user 1.1 ms, sys: 974 µs, total: 2.08 ms
-Wall time: 1.11 ms
+hong
+CPU times: user 693 µs, sys: 442 µs, total: 1.14 ms
+Wall time: 735 µs
 </pre>
 </div>
 </div>
@@ -12774,7 +12802,7 @@ Wall time: 1.11 ms
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -12796,17 +12824,17 @@ Wall time: 1.11 ms
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>tokyo
-shanghai
 japan
+shanghai
+athens
+yen
 osaka
-japanese
-beijing
-seoul
-singapore
+morning
 kong
-taipei
-CPU times: user 273 ms, sys: 5.26 ms, total: 278 ms
-Wall time: 44.7 ms
+hong
+helsinki
+CPU times: user 42.8 ms, sys: 907 µs, total: 43.7 ms
+Wall time: 6.59 ms
 </pre>
 </div>
 </div>
@@ -12817,7 +12845,7 @@ Wall time: 44.7 ms
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -12848,8 +12876,8 @@ taipei
 hong
 athens
 korean
-CPU times: user 346 µs, sys: 28 µs, total: 374 µs
-Wall time: 380 µs
+CPU times: user 11.1 ms, sys: 281 µs, total: 11.4 ms
+Wall time: 792 µs
 </pre>
 </div>
 </div>
@@ -12900,7 +12928,7 @@ Wall time: 380 µs
 
 </div>
 </div>
-</div>
+</div></section></section>
 </div>
 </div>
 
