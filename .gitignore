@@ -1,1 +1,3 @@
+*.zip
+glove_data/
 .ipynb_checkpoints/
